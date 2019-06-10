@@ -4,6 +4,7 @@
 
 TicTacToeBoard::TicTacToeBoard()
 {
+	ClearBoard();
 }
 
 TicTacToeBoard::~TicTacToeBoard()
