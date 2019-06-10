@@ -3,18 +3,24 @@
 
 // 이벤트 관련 페이지 : https://stackoverflow.com/questions/768351/complete-example-using-boostsignals-for-c-eventing
 #include "TicTacToeGate.h"
+#include <iostream>
 int main()
 {
 	/*
-	std::cout << MessageBoxA(NULL, "text", "Title!!", MB_OKCANCEL | MB_ICONEXCLAMATION);
 	sf::Texture background;
 	sf::Sprite backgroundImage;
-	if (background.loadFromFile("board.png") == false)
+	sf::Texture markO;
+	sf::Sprite markOImage;
+	if (background.loadFromFile("Resource/board.png") == false)
 		std::cout << "can't find background image" << std::endl;
 	backgroundImage.setTexture(background);
+	if(markO.loadFromFile("Resource/markO.png") == false)
+		std::cout << "can't find markO image" << std::endl;
+	markOImage.setTexture(markO);
+	markOImage.setPosition(200.0f, 0.0f);
 
 	sf::RenderWindow window;
-	window.create(sf::VideoMode(800, 600), "TicTacToe", sf::Style::Close);
+	window.create(sf::VideoMode(600, 600), "TicTacToe", sf::Style::Close);
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -26,12 +32,14 @@ int main()
 
 		window.clear();
 		window.draw(backgroundImage);
+		window.draw(markOImage);
 		window.display();
 	}
 	*/
+	
 	WindowSize windowSize = std::make_pair(800, 600);
 	TicTacToeGate gate(windowSize);
 	gate.UpdateGameLoop();
-
+	
 	return 0;
 }
