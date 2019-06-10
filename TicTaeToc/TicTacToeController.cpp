@@ -14,7 +14,6 @@ void TicTacToeController::OnStartGameLoop(sf::RenderWindow & window) const
 {
 	std::cout << "On Start Game Loop" << std::endl;	
 	TicTacToeMissionMessageSet set;	
-	set.ShowAllMissionMessages();
 }
 
 void TicTacToeController::OnClickMouseButton(sf::RenderWindow & window, const MouseCoord mouseCoord) const

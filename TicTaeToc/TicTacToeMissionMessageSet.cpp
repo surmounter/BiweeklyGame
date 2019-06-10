@@ -44,3 +44,10 @@ void TicTacToeMissionMessageSet::ShowAllMissionMessages() const
 	for (auto &missionMessage : _missionMessages)
 		std::cout << missionMessage << std::endl;
 }
+
+const std::string TicTacToeMissionMessageSet::GetMissionMessage()
+{
+	const int missionMessageIndex = _getMissionMessageCnt % _missionMessages.size();
+	++_getMissionMessageCnt;
+	return _missionMessages[missionMessageIndex];
+}
