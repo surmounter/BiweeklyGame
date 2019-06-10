@@ -2,11 +2,10 @@
 //
 
 // 이벤트 관련 페이지 : https://stackoverflow.com/questions/768351/complete-example-using-boostsignals-for-c-eventing
-#include <iostream>
-#include <SFML/Graphics.hpp>
-#include <Windows.h>
+#include "TicTacToeGate.h"
 int main()
 {
+	/*
 	std::cout << MessageBoxA(NULL, "text", "Title!!", MB_OKCANCEL | MB_ICONEXCLAMATION);
 	sf::Texture background;
 	sf::Sprite backgroundImage;
@@ -29,5 +28,10 @@ int main()
 		window.draw(backgroundImage);
 		window.display();
 	}
+	*/
+	WindowSize windowSize = std::make_pair(800, 600);
+	TicTacToeGate gate(windowSize);
+	gate.UpdateGameLoop();
+
 	return 0;
 }

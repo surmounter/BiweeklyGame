@@ -124,6 +124,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TicTacToeController.cpp" />
+    <ClCompile Include="TicTacToeGate.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TicTacToeGate.h" />
+    <ClInclude Include="TicTacToeController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
