@@ -12,7 +12,7 @@ TicTacToeBoard::~TicTacToeBoard()
 
 const bool TicTacToeBoard::MarkBoard(const HorseType::value horseType, const BoardCoord & boardCoord)
 {
-	if (IsEmpty(boardCoord) == false || IsOffBoard(boardCoord) == false)
+	if (IsEmpty(boardCoord) == false || IsOffBoard(boardCoord))
 		return false;
 	_board[boardCoord.y][boardCoord.x] = horseType;
 	return true;
