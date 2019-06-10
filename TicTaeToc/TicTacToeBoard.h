@@ -23,6 +23,7 @@ public:
 		memset(_board, HorseType::EMPTY, sizeof(_board)); 
 	}
 	const bool MarkBoard(const HorseType::value horseType, const BoardCoord& boardCoord);
+	void ShowBoard() const;
 
 private:
 	const bool IsEmpty(const BoardCoord& boardCoord) const
