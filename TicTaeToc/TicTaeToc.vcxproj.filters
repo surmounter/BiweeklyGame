@@ -30,6 +30,9 @@
     <ClCompile Include="TicTacToeMissionMessageSet.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="TicTacToeModel.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TicTacToeController.h">
@@ -42,6 +45,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="TicTacToeMissionMessageSet.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TicTacToeModel.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
