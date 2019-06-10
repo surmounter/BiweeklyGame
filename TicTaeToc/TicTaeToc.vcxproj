@@ -124,10 +124,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TicTacToeBoard.cpp" />
     <ClCompile Include="TicTacToeController.cpp" />
     <ClCompile Include="TicTacToeGate.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TicTacToeBoard.h" />
     <ClInclude Include="TicTacToeGate.h" />
     <ClInclude Include="TicTacToeController.h" />
   </ItemGroup>
