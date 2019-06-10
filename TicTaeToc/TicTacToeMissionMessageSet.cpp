@@ -1,8 +1,10 @@
 #include "TicTacToeMissionMessageSet.h"
+#include <iostream>
 #include <fstream>
 
 TicTacToeMissionMessageSet::TicTacToeMissionMessageSet()
 {
+	InitializeMissionMessages(missionMessageFileDir);
 }
 
 TicTacToeMissionMessageSet::~TicTacToeMissionMessageSet()
@@ -20,4 +22,10 @@ void TicTacToeMissionMessageSet::InitializeMissionMessages(const std::string dir
 			_missionMessages.push_back(line);
 		missionMessageFile.close();
 	}
+}
+
+void TicTacToeMissionMessageSet::ShowAllMissionMessages() const
+{
+	for (auto &missionMessage : _missionMessages)
+		std::cout << missionMessage << std::endl;
 }
