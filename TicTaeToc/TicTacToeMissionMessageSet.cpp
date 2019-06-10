@@ -1,4 +1,6 @@
 #include "TicTacToeMissionMessageSet.h"
+#include <algorithm>
+#include <random>
 #include <iostream>
 #include <fstream>
 
@@ -11,9 +13,15 @@ TicTacToeMissionMessageSet::~TicTacToeMissionMessageSet()
 {
 }
 
-void TicTacToeMissionMessageSet::InitializeMissionMessages(const std::string directory)
+void TicTacToeMissionMessageSet::InitializeMissionMessages(const std::string& directory)
 {
 	_missionMessages.clear();
+	SetMissionMessagesFromFile(directory);
+	ShuffleMissionMessages();
+}
+
+void TicTacToeMissionMessageSet::SetMissionMessagesFromFile(const std::string& directory)
+{
 	std::ifstream missionMessageFile(directory.data());
 	if (missionMessageFile.is_open())
 	{
@@ -22,6 +30,13 @@ void TicTacToeMissionMessageSet::InitializeMissionMessages(const std::string dir
 			_missionMessages.push_back(line);
 		missionMessageFile.close();
 	}
+}
+
+void TicTacToeMissionMessageSet::ShuffleMissionMessages()
+{
+	std::random_device rd; // TODO :  ÀÇ¹Ì
+	std::mt19937 g(rd());
+	std::shuffle(_missionMessages.begin(), _missionMessages.end(), g);
 }
 
 void TicTacToeMissionMessageSet::ShowAllMissionMessages() const
