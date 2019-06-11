@@ -139,6 +139,7 @@
     <ClInclude Include="TicTacToeController.h" />
     <ClInclude Include="TicTacToeMissionMessageSet.h" />
     <ClInclude Include="TicTacToeModel.h" />
+    <ClInclude Include="TicTacToeView.h" />
     <ClInclude Include="WindowSize.h" />
   </ItemGroup>
   <ItemGroup>
