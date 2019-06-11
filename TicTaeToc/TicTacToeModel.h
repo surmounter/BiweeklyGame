@@ -15,7 +15,7 @@ public:
 	~TicTacToeModel();
 	
 	const bool PutHorse(const Point& mouseClickPoint, const sf::RenderWindow &window);
-	const std::string GetMissionMessage() const { return _missionMessageSet->GetMissionMessage(); };
+	const std::string GetMissionMessage() const;
 	void ChangeTurn() { _turn = (_turn == HorseType::MARK_O) ? HorseType::MARK_X : HorseType::MARK_O; };
 	void ShowBoard() const;
 

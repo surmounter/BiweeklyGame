@@ -23,6 +23,11 @@ const bool TicTacToeModel::PutHorse(const Point & mouseClickPoint, const sf::Ren
 	return isPutHorseSuccess;
 }
 
+const std::string TicTacToeModel::GetMissionMessage() const
+{
+	return _missionMessageSet->GetMissionMessage();
+}
+
 
 
 void TicTacToeModel::ShowBoard() const
