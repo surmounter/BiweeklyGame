@@ -22,7 +22,7 @@ void TicTacToeGate::UpdateGameLoop()
 			switch (event.type)
 			{
 			case sf::Event::MouseButtonPressed:
-				_controller->OnClickMouseButton(_window, std::make_pair(event.mouseButton.x, event.mouseButton.y));
+				_controller->OnClickMouseButton(_window, Point{ event.mouseButton.x * 1.0f, event.mouseButton.y * 1.0f });
 				break;
 			case sf::Event::Closed:
 				_controller->OnCloseWindow();

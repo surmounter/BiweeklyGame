@@ -20,9 +20,9 @@ void TicTacToeController::OnStartGameLoop(sf::RenderWindow & window) const
 	std::cout << ret.x << "," << ret.y;
 }
 
-void TicTacToeController::OnClickMouseButton(sf::RenderWindow & window, const MouseCoord mouseCoord) const
+void TicTacToeController::OnClickMouseButton(sf::RenderWindow & window, const Point & mouseClickPoint) const
 {
-	std::cout << "On Click MouseButton : " << mouseCoord.first << "," << mouseCoord.second << std::endl;
+	std::cout << "On Click MouseButton : " << mouseClickPoint.GetX() << "," << mouseClickPoint.GetY() << std::endl;
 }
 
 void TicTacToeController::OnCloseWindow() const
