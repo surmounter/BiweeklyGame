@@ -1,7 +1,7 @@
 #pragma once
 #include <utility>
 #include <SFML/Graphics.hpp>
-#define MouseCoord std::pair<int,int>
+#include "Point.h"
 class TicTacToeController final
 {
 public:
@@ -9,6 +9,6 @@ public:
 	~TicTacToeController();
 
 	void OnStartGameLoop(sf::RenderWindow &window) const;
-	void OnClickMouseButton(sf::RenderWindow &window, const MouseCoord mouseCoord) const;
+	void OnClickMouseButton(sf::RenderWindow &window, const Point& mouseClickPoint) const;
 	void OnCloseWindow() const;
 };
