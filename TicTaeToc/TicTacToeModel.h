@@ -17,5 +17,5 @@ public:
 private:
 	std::unique_ptr<TicTacToeBoard> _board;
 	std::unique_ptr<TicTacToeMissionMessageSet> _missionMessageSet;
-	HorseType::value _turn;
+	HorseType::value _turn = HorseType::MARK_O;
 };
