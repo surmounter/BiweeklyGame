@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <string>
 #include <SFML/Graphics.hpp>
 #include "HorseType.h"
 #include "Point.h"
@@ -14,8 +15,10 @@ public:
 	~TicTacToeModel();
 	
 	const bool PutHorse(const Point& mouseClickPoint, const sf::RenderWindow &window);
+	const std::string GetMissionMessage() const { return _missionMessageSet->GetMissionMessage(); };
 	void ChangeTurn() { _turn = (_turn == HorseType::MARK_O) ? HorseType::MARK_X : HorseType::MARK_O; };
 	void ShowBoard() const;
+
 private:
 	std::unique_ptr<TicTacToeBoard> _board;
 	std::unique_ptr<TicTacToeMissionMessageSet> _missionMessageSet;
