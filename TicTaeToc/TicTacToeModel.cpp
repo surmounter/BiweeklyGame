@@ -19,7 +19,7 @@ const bool TicTacToeModel::PutHorse(const Point & mouseClickPoint, const sf::Ren
 	auto boardSlot = _board->ConvertMouseClickPointToBoardSlot(windowSize, mouseClickPoint);
 	auto isPutHorseSuccess = _board->PutHorseOnBoard(_turn, boardSlot);
 	if (isPutHorseSuccess)
-		_turn = (_turn == HorseType::MARK_O) ? HorseType::MARK_X : HorseType::MARK_O;
+		ChangeTurn();
 	return isPutHorseSuccess;
 }
 
