@@ -131,6 +131,7 @@
     <ClCompile Include="TicTacToeMissionMessageSet.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="HorseType.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="TicTacToeBoard.h" />
     <ClInclude Include="TicTacToeGate.h" />

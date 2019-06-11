@@ -3,15 +3,11 @@
 #include <utility>
 #include "WindowSize.h"
 #include "Point.h"
+#include "HorseType.h"
 
 struct BoardSlot 
 {
 	int x, y;
-};
-
-struct HorseType
-{
-	enum value {EMPTY = 0, MARK_O, MARK_X, NUM_OF_HORSE_TYPE};
 };
 
 class TicTacToeBoard final
