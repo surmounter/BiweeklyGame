@@ -12,7 +12,7 @@ TicTacToeBoard::~TicTacToeBoard()
 {
 }
 
-const bool TicTacToeBoard::MarkBoard(const HorseType::value horseType, const BoardSlot & boardSlot)
+const bool TicTacToeBoard::PutHorseOnBoard(const HorseType::value horseType, const BoardSlot & boardSlot)
 {
 	if (IsEmpty(boardSlot) == false || IsOffBoard(boardSlot))
 		return false;
@@ -20,12 +20,12 @@ const bool TicTacToeBoard::MarkBoard(const HorseType::value horseType, const Boa
 	return true;
 }
 
-const BoardSlot TicTacToeBoard::ConvertMouseCoordToBoardCoord(const WindowSize & windowSize, const Point & mouseCoord) const
+const BoardSlot TicTacToeBoard::ConvertMouseClickPointToBoardSlot(const WindowSize & windowSize, const Point & mouseClickPoint) const
 {
 	assert(rowCnt > 0 && colCnt > 0, "Error will occur because divide by zero");
 	BoardSlot boardSlot;
-	boardSlot.x = mouseCoord.GetX() / (windowSize.width / rowCnt);
-	boardSlot.y = mouseCoord.GetY() / (windowSize.height / colCnt);
+	boardSlot.x = mouseClickPoint.GetX() / (windowSize.width / rowCnt);
+	boardSlot.y = mouseClickPoint.GetY() / (windowSize.height / colCnt);
 	if (boardSlot.x >= rowCnt) boardSlot.x = rowCnt - 1;
 	if (boardSlot.y >= colCnt) boardSlot.y = colCnt - 1;
 	return boardSlot;
