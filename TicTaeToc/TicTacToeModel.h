@@ -14,6 +14,7 @@ public:
 	~TicTacToeModel();
 	
 	const bool PutHorse(const Point& mouseClickPoint, const sf::RenderWindow &window);
+	void ShowBoard() const;
 private:
 	std::unique_ptr<TicTacToeBoard> _board;
 	std::unique_ptr<TicTacToeMissionMessageSet> _missionMessageSet;

@@ -22,3 +22,8 @@ const bool TicTacToeModel::PutHorse(const Point & mouseClickPoint, const sf::Ren
 		_turn = (_turn == HorseType::MARK_O) ? HorseType::MARK_X : HorseType::MARK_O;
 	return isPutHorseSuccess;
 }
+
+void TicTacToeModel::ShowBoard() const
+{
+	_board->ShowBoard();
+}
