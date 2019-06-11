@@ -130,6 +130,7 @@
     <ClCompile Include="TicTacToeMissionMessageSet.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Coord.h" />
     <ClInclude Include="TicTacToeBoard.h" />
     <ClInclude Include="TicTacToeGate.h" />
     <ClInclude Include="TicTacToeController.h" />

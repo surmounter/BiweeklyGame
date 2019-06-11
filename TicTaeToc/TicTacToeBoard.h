@@ -1,6 +1,7 @@
 #pragma once
 
 #include <utility>
+#include "WindowSize.h"
 
 struct BoardCoord 
 {
@@ -23,6 +24,7 @@ public:
 		memset(_board, HorseType::EMPTY, sizeof(_board)); 
 	}
 	const bool MarkBoard(const HorseType::value horseType, const BoardCoord& boardCoord);
+	//const BoardCoord ConvertMouseCoordToBoardCoord(const WindowSize& windowSize, )
 	void ShowBoard() const;
 
 private:
