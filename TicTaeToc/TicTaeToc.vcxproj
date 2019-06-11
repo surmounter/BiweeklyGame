@@ -130,6 +130,7 @@
     <ClCompile Include="TicTacToeGate.cpp" />
     <ClCompile Include="TicTacToeMissionMessageSet.cpp" />
     <ClCompile Include="TicTacToeModel.cpp" />
+    <ClCompile Include="TicTacToeView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HorseType.h" />
