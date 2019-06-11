@@ -1,6 +1,7 @@
 #include "TicTacToeBoard.h"
 #include <string.h>
 #include <iostream>
+#include <cassert>
 
 TicTacToeBoard::TicTacToeBoard()
 {
@@ -19,12 +20,12 @@ const bool TicTacToeBoard::MarkBoard(const HorseType::value horseType, const Boa
 	return true;
 }
 
-const BoardCoord TicTacToeBoard::ConvertMouseCoordToBoardCoord(const WindowSize & windowSize, const Coord & mouseCoord) const
+const BoardCoord TicTacToeBoard::ConvertMouseCoordToBoardCoord(const WindowSize & windowSize, const Point & mouseCoord) const
 {
-	//if(mouseCoord.x < 0 || mouseCoord.y < 0 || windowSize.width < 0 || windowSize.height < 0)
+	assert(rowCnt > 0 && colCnt > 0, "Error will occur because divide by zero");
 	BoardCoord boardCoord;
-	boardCoord.x = mouseCoord.x / (windowSize.width / rowCnt);
-	boardCoord.y = mouseCoord.y / (windowSize.height / colCnt);
+	boardCoord.x = mouseCoord.GetX() / (windowSize.width / rowCnt);
+	boardCoord.y = mouseCoord.GetY() / (windowSize.height / colCnt);
 	if (boardCoord.x >= rowCnt) boardCoord.x = rowCnt - 1;
 	if (boardCoord.y >= colCnt) boardCoord.y = colCnt - 1;
 	return boardCoord;

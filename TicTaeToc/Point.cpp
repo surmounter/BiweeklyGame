@@ -12,4 +12,5 @@ Point::~Point()
 std::ostream & operator<<(std::ostream & os, const Point & p)
 {
 	os << "point : " << "(" << p._x << "," << p._y << ")" << std::endl;
+	return os;
 }
