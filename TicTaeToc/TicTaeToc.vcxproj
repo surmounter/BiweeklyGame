@@ -124,13 +124,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Point.cpp" />
     <ClCompile Include="TicTacToeBoard.cpp" />
     <ClCompile Include="TicTacToeController.cpp" />
     <ClCompile Include="TicTacToeGate.cpp" />
     <ClCompile Include="TicTacToeMissionMessageSet.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Coord.h" />
+    <ClInclude Include="Point.h" />
     <ClInclude Include="TicTacToeBoard.h" />
     <ClInclude Include="TicTacToeGate.h" />
     <ClInclude Include="TicTacToeController.h" />
