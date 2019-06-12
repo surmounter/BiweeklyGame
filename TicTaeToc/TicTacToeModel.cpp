@@ -21,10 +21,13 @@ const bool TicTacToeModel::PutHorse(const Point & mouseClickPoint, const sf::Ren
 
 	if (_board->IsPutHorse(boardSlot) == false)
 		return false;	
-	ChangeTurn();
 	if (TryMission() == false)
+	{
+		ChangeTurn();
 		return false;
+	}
 	_board->PutHorseOnBoard(_turn, boardSlot);		
+	ChangeTurn();
 	return true;
 }
 
