@@ -30,6 +30,7 @@ const bool TicTacToeModel::PutHorse(const Point & mouseClickPoint, const sf::Ren
 
 void TicTacToeModel::ShowResultOfTurn() const
 {
+	std::cout << "present turn : " << _turn << std::endl;
 	_board->ShowBoard();
 }
 
