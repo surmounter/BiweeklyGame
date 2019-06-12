@@ -34,13 +34,6 @@ const bool TicTacToeModel::PutHorse(const Point & mouseClickPoint, const sf::Ren
 	return true;
 }
 
-const std::string TicTacToeModel::GetMissionMessage() const
-{
-	return _missionMessageSet->GetMissionMessage();
-}
-
-
-
 void TicTacToeModel::ShowBoard() const
 {
 	_board->ShowBoard();
