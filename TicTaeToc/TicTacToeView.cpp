@@ -2,6 +2,7 @@
 
 TicTacToeView::TicTacToeView()
 {
+	
 }
 
 TicTacToeView::~TicTacToeView()
