@@ -20,7 +20,7 @@ public:
 	const bool PutHorseOnBoard(const HorseType::value horseType, const BoardSlot& boardSlot);
 	const BoardSlot ConvertMouseClickPointToBoardSlot(const WindowSize& windowSize, const Point& mouseClickPoint) const;
 	void ShowBoard() const;
-	const bool IsPutHorse(const BoardSlot& boardSlot) const;
+	const bool CanPutHorse(const BoardSlot& boardSlot) const;
 	const HorseType::value IsWin(const BoardSlot &recentPutSlot) const;
 
 private:

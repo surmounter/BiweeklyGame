@@ -21,7 +21,7 @@ void TicTacToeBoard::ClearBoard()
 
 const bool TicTacToeBoard::PutHorseOnBoard(const HorseType::value horseType, const BoardSlot & boardSlot)
 {
-	if (IsPutHorse(boardSlot) == false)
+	if (CanPutHorse(boardSlot) == false)
 		return false;
 	_board[boardSlot.y][boardSlot.x] = horseType;
 	return true;
@@ -48,7 +48,7 @@ void TicTacToeBoard::ShowBoard() const
 	}
 }
 
-const bool TicTacToeBoard::IsPutHorse(const BoardSlot & boardSlot) const
+const bool TicTacToeBoard::CanPutHorse(const BoardSlot & boardSlot) const
 {
 	if (IsEmpty(boardSlot) == false || IsOffBoard(boardSlot))
 		return false;
