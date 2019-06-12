@@ -21,6 +21,7 @@ public:
 	const BoardSlot ConvertMouseClickPointToBoardSlot(const WindowSize& windowSize, const Point& mouseClickPoint) const;
 	void ShowBoard() const;
 	const bool IsPutHorse(const BoardSlot& boardSlot) const;
+	const HorseType::value IsWin(const BoardSlot &recentPutSlot) const;
 
 private:
 	const bool IsEmpty(const BoardSlot& boardSlot) const { return _board[boardSlot.y][boardSlot.x] == HorseType::EMPTY; };
@@ -30,4 +31,7 @@ private:
 	const int rowCnt = 3;
 	const int colCnt = 3;
 	int _board[3][3]; // TODO : 상수를 배열 길이로 넣고 싶은데? 되는거 아닌가?
+	const BoardSlot adjacentSlots[8] = { {1,-1}, {1,0}, {1,1},
+																	{0,-1},			    {0,1},
+																	{-1,-1}, {-1,0}, {-1,1} };
 };

@@ -48,3 +48,16 @@ const bool TicTacToeBoard::IsPutHorse(const BoardSlot & boardSlot) const
 	return true;
 }
 
+const HorseType::value TicTacToeBoard::IsWin(const BoardSlot &recentPutSlot) const
+{
+	int sameHorseCntInRow = 1;
+	for (auto adjacentSlot : adjacentSlots)
+		if (IsOffBoard(adjacentSlot) == false && _board[recentPutSlot.y][recentPutSlot.x] == _board[adjacentSlot.y][adjacentSlot.x])
+			++sameHorseCntInRow;
+	if (sameHorseCntInRow == 3)
+		return static_cast<HorseType::value>(_board[recentPutSlot.y][recentPutSlot.x]);
+
+	
+
+}
+
