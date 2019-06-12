@@ -4,8 +4,6 @@
 #include "TicTacToeBoard.h"
 #include "TicTacToeMissionMessageSet.h"
 
-#define SELECT_CANCEL_BUTTON 2
-
 TicTacToeModel::TicTacToeModel()
 {
 	_board = std::make_unique<TicTacToeBoard>();
@@ -22,19 +20,23 @@ const bool TicTacToeModel::PutHorse(const Point & mouseClickPoint, const sf::Ren
 	auto boardSlot = _board->ConvertMouseClickPointToBoardSlot(windowSize, mouseClickPoint);
 
 	if (_board->IsPutHorse(boardSlot) == false)
-		return false;
-	auto missionMessage = _missionMessageSet->GetMissionMessage();
-	if (MessageBoxA(NULL, missionMessage.c_str(), _missionMessageTitle, MB_OKCANCEL | MB_ICONEXCLAMATION) == SELECT_CANCEL_BUTTON)
-	{
-		ChangeTurn();
-		return false;
-	}
-	_board->PutHorseOnBoard(_turn, boardSlot);		
+		return false;	
 	ChangeTurn();
+	if (TryMission() == false)
+		return false;
+	_board->PutHorseOnBoard(_turn, boardSlot);		
 	return true;
 }
 
 void TicTacToeModel::ShowBoard() const
 {
 	_board->ShowBoard();
+}
+
+const bool TicTacToeModel::TryMission() const
+{
+	auto missionMessage = _missionMessageSet->GetMissionMessage();
+	const int clickOkButton = 1;
+	const bool isClear = (MessageBoxA(NULL, missionMessage.c_str(), _missionMessageTitle, MB_OKCANCEL | MB_ICONEXCLAMATION) == clickOkButton);
+	return isClear;
 }
