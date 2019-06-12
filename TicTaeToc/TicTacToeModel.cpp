@@ -1,7 +1,10 @@
 #include "TicTacToeModel.h"
 #include <iostream>
+#include <Windows.h>
 #include "TicTacToeBoard.h"
 #include "TicTacToeMissionMessageSet.h"
+
+#define SELECT_CANCEL_BUTTON 2
 
 TicTacToeModel::TicTacToeModel()
 {
@@ -17,10 +20,18 @@ const bool TicTacToeModel::PutHorse(const Point & mouseClickPoint, const sf::Ren
 {
 	WindowSize windowSize = { window.getSize().x, window.getSize().y };
 	auto boardSlot = _board->ConvertMouseClickPointToBoardSlot(windowSize, mouseClickPoint);
-	auto isPutHorseSuccess = _board->PutHorseOnBoard(_turn, boardSlot);
-	if (isPutHorseSuccess)
-		ChangeTurn();		
-	return isPutHorseSuccess;
+
+	if (_board->IsPutHorse(boardSlot) == false)
+		return false;
+	auto missionMessage = _missionMessageSet->GetMissionMessage();
+	if (MessageBoxA(NULL, missionMessage.c_str(), _missionMessageTitle, MB_OKCANCEL | MB_ICONEXCLAMATION) == SELECT_CANCEL_BUTTON)
+	{
+		ChangeTurn();
+		return false;
+	}
+	_board->PutHorseOnBoard(_turn, boardSlot);		
+	ChangeTurn();
+	return true;
 }
 
 const std::string TicTacToeModel::GetMissionMessage() const

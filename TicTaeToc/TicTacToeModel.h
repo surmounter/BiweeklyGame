@@ -23,4 +23,5 @@ private:
 	std::unique_ptr<TicTacToeBoard> _board;
 	std::unique_ptr<TicTacToeMissionMessageSet> _missionMessageSet;
 	HorseType::value _turn = HorseType::MARK_O;
+	const char* _missionMessageTitle = "Mission Message. Click ok buttion if you clear mission or not your turn will be taken over";
 };
