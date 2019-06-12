@@ -20,7 +20,7 @@ void TicTacToeController::OnClickMouseButton(sf::RenderWindow & window, const Po
 {
 	std::cout << "On Click MouseButton : " << mouseClickPoint.GetX() << "," << mouseClickPoint.GetY() << std::endl;
 	_model->PutHorse(mouseClickPoint, window);
-	_model->ShowBoard();
+	_model->ShowResultOfTurn();
 }
 
 void TicTacToeController::OnCloseWindow() const

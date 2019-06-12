@@ -28,7 +28,7 @@ const bool TicTacToeModel::PutHorse(const Point & mouseClickPoint, const sf::Ren
 	return true;
 }
 
-void TicTacToeModel::ShowBoard() const
+void TicTacToeModel::ShowResultOfTurn() const
 {
 	_board->ShowBoard();
 }
