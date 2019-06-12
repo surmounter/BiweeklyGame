@@ -1,4 +1,5 @@
 #include "TicTacToeBoard.h"
+#include <algorithm>
 #include <string.h>
 #include <iostream>
 #include <cassert>
@@ -10,6 +11,12 @@ TicTacToeBoard::TicTacToeBoard()
 
 TicTacToeBoard::~TicTacToeBoard()
 {
+}
+
+void TicTacToeBoard::ClearBoard()
+{
+	for(int y = 0; y < rowCnt; ++y)
+		std::fill(_board[y].begin(), _board[y].end(), HorseType::EMPTY);
 }
 
 const bool TicTacToeBoard::PutHorseOnBoard(const HorseType::value horseType, const BoardSlot & boardSlot)

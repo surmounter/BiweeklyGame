@@ -16,7 +16,7 @@ public:
 	TicTacToeBoard();
 	~TicTacToeBoard();
 
-	void ClearBoard() { memset(_board, HorseType::EMPTY, sizeof(_board)); }
+	void ClearBoard();
 	const bool PutHorseOnBoard(const HorseType::value horseType, const BoardSlot& boardSlot);
 	const BoardSlot ConvertMouseClickPointToBoardSlot(const WindowSize& windowSize, const Point& mouseClickPoint) const;
 	void ShowBoard() const;
