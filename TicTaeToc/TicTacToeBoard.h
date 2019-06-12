@@ -20,6 +20,7 @@ public:
 	const bool PutHorseOnBoard(const HorseType::value horseType, const BoardSlot& boardSlot);
 	const BoardSlot ConvertMouseClickPointToBoardSlot(const WindowSize& windowSize, const Point& mouseClickPoint) const;
 	void ShowBoard() const;
+	const bool IsPutHorse(const BoardSlot& boardSlot) const;
 
 private:
 	const bool IsEmpty(const BoardSlot& boardSlot) const { return _board[boardSlot.y][boardSlot.x] == HorseType::EMPTY; };
