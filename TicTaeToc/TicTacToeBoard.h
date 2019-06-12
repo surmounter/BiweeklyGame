@@ -1,5 +1,5 @@
 #pragma once
-
+#include <array>
 #include <utility>
 #include "WindowSize.h"
 #include "Point.h"
@@ -30,7 +30,8 @@ private:
 private:
 	const int rowCnt = 3;
 	const int colCnt = 3;
-	int _board[3][3]; // TODO : 상수를 배열 길이로 넣고 싶은데? 되는거 아닌가?
+	std::array<std::array<int, 3>, 3> _board;
+	//int _board[3][3]; // TODO : 상수를 배열 길이로 넣고 싶은데? 되는거 아닌가?
 	const BoardSlot adjacentSlots[8] = { {1,-1}, {1,0}, {1,1},
 																	{0,-1},			    {0,1},
 																	{-1,-1}, {-1,0}, {-1,1} };
