@@ -4,7 +4,7 @@
 #include "WindowSize.h"
 #include "Point.h"
 #include "HorseType.h"
-
+using Board = std::array<std::array<int, 3>, 3>;
 struct BoardSlot 
 {
 	int x, y;
@@ -30,7 +30,7 @@ private:
 private:
 	const int rowCnt = 3;
 	const int colCnt = 3;
-	std::array<std::array<int, 3>, 3> _board;
+	Board _board;
 	//int _board[3][3]; // TODO : 상수를 배열 길이로 넣고 싶은데? 되는거 아닌가?
 	const BoardSlot adjacentSlots[8] = { {1,-1}, {1,0}, {1,1},
 																	{0,-1},			    {0,1},
