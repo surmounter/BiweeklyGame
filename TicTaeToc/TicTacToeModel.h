@@ -17,6 +17,7 @@ public:
 	const bool PutHorse(const Point& mouseClickPoint, const sf::RenderWindow &window);
 	void ChangeTurn() { _turn = (_turn == HorseType::MARK_O) ? HorseType::MARK_X : HorseType::MARK_O; };
 	void ShowResultOfTurn() const;
+	const int GetBoardSlotCnt() const;
 
 private:
 	const bool TryMission() const;

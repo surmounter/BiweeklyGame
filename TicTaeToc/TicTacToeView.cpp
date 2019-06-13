@@ -1,23 +1,33 @@
 #include "TicTacToeView.h"
 #include <iostream>
-
-TicTacToeView::TicTacToeView()
+TicTacToeView::TicTacToeView(const int boardSlotCnt)
 {
-	MapSpriteWithTexture(_boardSprite, _boardTexture, _boardTextureDir);
-	MapSpriteWithTexture(_markOSprite, _markOTexture, _markOTextureDir);
-	MapSpriteWithTexture(_markXSprite, _markXTexture, _markXTextureDir);
+	_boardSprite = std::make_unique<SpriteManger>(_boardTextureDir, 1);
+	_markOSprite = std::make_unique<SpriteManger>(_markOSprite, boardSlotCnt);
+	_markXSprite = std::make_unique<SpriteManger>(_markXSprite, boardSlotCnt);
 }
 
 TicTacToeView::~TicTacToeView()
 {
 }
 
-void TicTacToeView::MapSpriteWithTexture(sf::Sprite & sprite, sf::Texture & texture, const std::string &imageDir)
+void TicTacToeView::UpdateBoard(const std::array<std::array<int, 3>, 3>& board, sf::RenderWindow & window) const
 {
-	if (texture.loadFromFile(imageDir) == false)
+	for (int y = 0; y < board.size(); ++y)
 	{
-		std::cout << "cannot load texture in " << imageDir << std::endl;
-		return;
+		for (int x = 0; x < board[y].size(); ++x)
+		{
+			switch (board[y][x])
+			{
+			case HorseType::MARK_O:
+				break;
+			case HorseType::MARK_X:
+				break;
+			default:
+				break;
+			}
+		}
 	}
-	sprite.setTexture(texture);
+
+
 }

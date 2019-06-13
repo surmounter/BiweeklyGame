@@ -1,10 +1,12 @@
 #include "TicTacToeController.h"
 #include <iostream>
 #include "TicTacToeModel.h"
+#include "TicTacToeView.h"
 
 TicTacToeController::TicTacToeController()
 {
 	_model = std::make_unique<TicTacToeModel>();
+	_view = std::make_unique<TicTacToeView>();
 }
 
 TicTacToeController::~TicTacToeController()

@@ -5,6 +5,7 @@
 #include "Point.h"
 
 class TicTacToeModel;
+class TicTacToeView;
 class TicTacToeController final
 {
 public:
@@ -17,4 +18,5 @@ public:
 
 private:
 	std::unique_ptr<TicTacToeModel> _model;
+	std::unique_ptr<TicTacToeView> _view;
 };
