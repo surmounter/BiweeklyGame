@@ -19,7 +19,7 @@ const bool TicTacToeModel::PutHorse(const Point & mouseClickPoint, const sf::Ren
 	WindowSize windowSize = { window.getSize().x, window.getSize().y };
 	auto boardSlot = _board->ConvertMouseClickPointToBoardSlot(windowSize, mouseClickPoint);
 
-	if (_board->IsPutHorse(boardSlot) == false)
+	if (_board->CanPutHorse(boardSlot) == false)
 		return false;	
 	if (TryMission() == false)
 	{
