@@ -57,28 +57,51 @@ const bool TicTacToeBoard::CanPutHorse(const BoardSlot & boardSlot) const
 
 const HorseType::value TicTacToeBoard::IsWin(const BoardSlot &recentPutSlot) const
 {
-
+	
 
 
 	return HorseType::EMPTY;
 }
 
-const HorseType::value TicTacToeBoard::CheckIfHorseInARow(const int row) const
+const HorseType::value TicTacToeBoard::CheckIfHorsesAreSameInARow(const int row) const
 {
 	assert(row < _board.size() && row >= 0, "out of bound in row");
-
-	int firstHorseInARow = _board[row][0];
-	if (firstHorseInARow == HorseType::EMPTY)
-		return HorseType::EMPTY;
-
-	auto isSameWithFirstHorseInARow = [firstHorseInARow](int horse) { return horse == firstHorseInARow; };
-	if (std::all_of(_board[row].begin(), _board[row].end(), isSameWithFirstHorseInARow))
-		return static_cast<HorseType::value>(firstHorseInARow);
-	return HorseType::EMPTY;
+	assert(_board.size > 0 && _board[0].size > 0, "_board is empty");
+	for (int x = 0; x < _board[row].size(); ++x)
+		if (_board[row][x] == HorseType::EMPTY || _board[row][0] != _board[row][x])
+			return HorseType::EMPTY;
+	return static_cast<HorseType::value>(_board[row][0]);
 }
 
-const HorseType::value TicTacToeBoard::CheckIfHorseInAColume(const int col) const
+const HorseType::value TicTacToeBoard::CheckIfHorsesAreSameInAColume(const int col) const
 {
-	assert(col < _board && col >= 0 )
+	assert(col < _board.size() && col >= 0, "out of bound in col");
+	assert(_board.size > 0 && _board[0].size > 0, "_board is empty");
+	for (int y = 0; y < _board.size(); ++y)
+		if (_board[y][col] == HorseType::EMPTY || _board[0][col] != _board[y][col])
+			return HorseType::EMPTY;
+	return static_cast<HorseType::value>(_board[0][col]);	
+}
+
+const HorseType::value TicTacToeBoard::ChckeIfHorseInADiagonal(const DiagonalDirection::Value direction) const
+{
+	assert(_board.size > 0 && _board[0].size > 0, "_board is empty");
+	switch (direction)
+	{
+	case DiagonalDirection::LEFTTOP_RIGHTDOWN:
+		for (int i = 0; i < _board.size(); ++i)
+			if (_board[i][i] == HorseType::EMPTY || _board[0][0] != _board[i][i])
+				return HorseType::EMPTY;
+		return static_cast<HorseType::value>(_board[0][0]);
+		break;
+	case DiagonalDirection::RIGHTTOP_LEFTDOWN:
+		for(int i = _board.size() - 1; i >= 0; --i)
+			if (_board[i][i] == HorseType::EMPTY || _board[_board.size()-1][_board.size()-1] != _board[i][i])
+				return HorseType::EMPTY;
+		return static_cast<HorseType::value>(_board[_board.size()-1][_board.size()-1]);
+		break;
+	default:
+		break;
+	}
 }
 
