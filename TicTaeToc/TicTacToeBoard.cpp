@@ -57,11 +57,28 @@ const bool TicTacToeBoard::CanPutHorse(const BoardSlot & boardSlot) const
 
 const HorseType::value TicTacToeBoard::IsWin(const BoardSlot &recentPutSlot) const
 {
-	int sameHorseCntInRow = 1;
-	for (auto adjacentSlot : adjacentSlots)
-		if (IsOffBoard(adjacentSlot) == false && _board[recentPutSlot.y][recentPutSlot.x] == _board[adjacentSlot.y][adjacentSlot.x])
-			++sameHorseCntInRow;
-	if (sameHorseCntInRow == 3)
-		return static_cast<HorseType::value>(_board[recentPutSlot.y][recentPutSlot.x]);
+
+
+
+	return HorseType::EMPTY;
+}
+
+const HorseType::value TicTacToeBoard::CheckIfHorseInARow(const int row) const
+{
+	assert(row < _board.size() && row >= 0, "out of bound in row");
+
+	int firstHorseInARow = _board[row][0];
+	if (firstHorseInARow == HorseType::EMPTY)
+		return HorseType::EMPTY;
+
+	auto isSameWithFirstHorseInARow = [firstHorseInARow](int horse) { return horse == firstHorseInARow; };
+	if (std::all_of(_board[row].begin(), _board[row].end(), isSameWithFirstHorseInARow))
+		return static_cast<HorseType::value>(firstHorseInARow);
+	return HorseType::EMPTY;
+}
+
+const HorseType::value TicTacToeBoard::CheckIfHorseInAColume(const int col) const
+{
+	assert(col < _board && col >= 0 )
 }
 
