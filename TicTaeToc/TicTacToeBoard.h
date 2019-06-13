@@ -26,6 +26,8 @@ public:
 	const BoardSlot ConvertMouseClickPointToBoardSlot(const WindowSize& windowSize, const Point& mouseClickPoint) const;
 	void ShowBoard() const;
 	const bool CanPutHorse(const BoardSlot& boardSlot) const;
+	const int GetBoardSlotCnt() const;
+	const Board GetBoard() const;
 	const HorseType::value IsWin(const BoardSlot &recentPutSlot) const;
 
 private:

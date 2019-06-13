@@ -3,8 +3,8 @@
 TicTacToeView::TicTacToeView(const int boardSlotCnt)
 {
 	_boardSprite = std::make_unique<SpriteManger>(_boardTextureDir, 1);
-	_markOSprite = std::make_unique<SpriteManger>(_markOSprite, boardSlotCnt);
-	_markXSprite = std::make_unique<SpriteManger>(_markXSprite, boardSlotCnt);
+	_markOSprite = std::make_unique<SpriteManger>(_markOTextureDir, boardSlotCnt);
+	_markXSprite = std::make_unique<SpriteManger>(_markXTextureDir, boardSlotCnt);
 }
 
 TicTacToeView::~TicTacToeView()
@@ -12,22 +12,40 @@ TicTacToeView::~TicTacToeView()
 }
 
 void TicTacToeView::UpdateBoard(const std::array<std::array<int, 3>, 3>& board, sf::RenderWindow & window) const
-{
+{	
+	window.clear();
+	_boardSprite->Initialize();
+	_markOSprite->Initialize();
+	_markXSprite->Initialize();
+	_boardSprite->DrawSprite(window, { 0.0f,0.0f } /*board sprite pos*/);
+		
 	for (int y = 0; y < board.size(); ++y)
 	{
+		int rowCnt = board.size();
 		for (int x = 0; x < board[y].size(); ++x)
 		{
-			switch (board[y][x])
-			{
-			case HorseType::MARK_O:
-				break;
-			case HorseType::MARK_X:
-				break;
-			default:
-				break;
-			}
+			int colCnt = board[y].size();
+			const float spritePosX = (window.getSize().x / colCnt) * x;
+			const float spritePosY = (window.getSize().y / rowCnt) * y;
+			const Point spritePos = { spritePosX, spritePosY };
+			auto horseType = static_cast<const HorseType::value>(board[y][x]);
+			DrawHorse(window, horseType, spritePos);
 		}
 	}
+	window.display();	
+}
 
-
+void TicTacToeView::DrawHorse(sf::RenderWindow & window, const HorseType::value horseType, const Point &pos) const
+{
+	switch (horseType)
+	{
+	case HorseType::MARK_O:
+		_markOSprite->DrawSprite(window, pos);
+		break;
+	case HorseType::MARK_X:
+		_markXSprite->DrawSprite(window, pos);
+		break;
+	default:
+		break;
+	}
 }

@@ -16,7 +16,7 @@ public:
 
 	void UpdateBoard(const std::array<std::array<int, 3>, 3>& board, sf::RenderWindow &window) const;
 private:
-
+	void DrawHorse(sf::RenderWindow &window, const HorseType::value horseType, const Point &pos) const;
 private:
 	const std::string _boardTextureDir = "Resource/board.png";
 	const std::string _markOTextureDir = "Resource/markO.png";

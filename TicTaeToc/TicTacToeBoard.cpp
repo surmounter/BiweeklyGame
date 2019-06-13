@@ -55,6 +55,17 @@ const bool TicTacToeBoard::CanPutHorse(const BoardSlot & boardSlot) const
 	return true;
 }
 
+const int TicTacToeBoard::GetBoardSlotCnt() const
+{
+	assert(_board.size() > 0 && _board[0].size() > 0, "board is empty");
+	return _board.size() * _board[0].size();
+}
+
+const Board TicTacToeBoard::GetBoard() const
+{
+	return _board;
+}
+
 const HorseType::value TicTacToeBoard::IsWin(const BoardSlot &recentPutSlot) const
 {
 	
@@ -66,7 +77,7 @@ const HorseType::value TicTacToeBoard::IsWin(const BoardSlot &recentPutSlot) con
 const HorseType::value TicTacToeBoard::CheckIfHorsesAreSameInARow(const int row) const
 {
 	assert(row < _board.size() && row >= 0, "out of bound in row");
-	assert(_board.size > 0 && _board[0].size > 0, "_board is empty");
+	assert(_board.size() > 0 && _board[0].size() > 0, "_board is empty");
 	for (int x = 0; x < _board[row].size(); ++x)
 		if (_board[row][x] == HorseType::EMPTY || _board[row][0] != _board[row][x])
 			return HorseType::EMPTY;
@@ -76,7 +87,7 @@ const HorseType::value TicTacToeBoard::CheckIfHorsesAreSameInARow(const int row)
 const HorseType::value TicTacToeBoard::CheckIfHorsesAreSameInAColume(const int col) const
 {
 	assert(col < _board.size() && col >= 0, "out of bound in col");
-	assert(_board.size > 0 && _board[0].size > 0, "_board is empty");
+	assert(_board.size() > 0 && _board[0].size() > 0, "_board is empty");
 	for (int y = 0; y < _board.size(); ++y)
 		if (_board[y][col] == HorseType::EMPTY || _board[0][col] != _board[y][col])
 			return HorseType::EMPTY;
@@ -85,7 +96,7 @@ const HorseType::value TicTacToeBoard::CheckIfHorsesAreSameInAColume(const int c
 
 const HorseType::value TicTacToeBoard::ChckeIfHorseInADiagonal(const DiagonalDirection::Value direction) const
 {
-	assert(_board.size > 0 && _board[0].size > 0, "_board is empty");
+	assert(_board.size() > 0 && _board[0].size() > 0, "_board is empty");
 	switch (direction)
 	{
 	case DiagonalDirection::LEFTTOP_RIGHTDOWN:

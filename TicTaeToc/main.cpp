@@ -18,6 +18,7 @@ void Draw(sf::RenderWindow &window)
 */
 int main()
 {
+	/*
 	sf::Texture background;
 	sf::Sprite backgroundImage;
 	sf::Texture markO;
@@ -48,12 +49,12 @@ int main()
 		window.draw(markOImage);
 		window.display();
 	}
+	*/
 	
 	
-	/*
-	WindowSize windowSize = std::make_pair(800, 600);
+	WindowSize windowSize = std::make_pair(600, 600);
 	TicTacToeGate gate(windowSize);
 	gate.UpdateGameLoop();
 	return 0;
-	*/
+	
 }

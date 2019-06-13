@@ -2,8 +2,7 @@
 #include <iostream>
 SpriteManger::SpriteManger(const std::string & textureDir, const int spriteCnt)
 {
-	sf::Texture texture;
-	if (texture.loadFromFile(textureDir) == false)
+	if (_texture.loadFromFile(textureDir) == false)
 	{
 		std::cout << "cannot load texture in " << textureDir << std::endl;
 		return;
@@ -12,7 +11,7 @@ SpriteManger::SpriteManger(const std::string & textureDir, const int spriteCnt)
 	for (int i = 0; i < spriteCnt; ++i)
 	{
 		sf::Sprite sprite;
-		sprite.setTexture(texture);
+		sprite.setTexture(_texture);
 		_sprites.push_back(sprite);
 	}
 }

@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "HorseType.h"
 #include "Point.h"
-
+using Board = std::array<std::array<int, 3>, 3>;
 class TicTacToeBoard;
 class TicTacToeMissionMessageSet;
 
@@ -18,6 +18,7 @@ public:
 	void ChangeTurn() { _turn = (_turn == HorseType::MARK_O) ? HorseType::MARK_X : HorseType::MARK_O; };
 	void ShowResultOfTurn() const;
 	const int GetBoardSlotCnt() const;
+	const Board GetBoard() const;
 
 private:
 	const bool TryMission() const;

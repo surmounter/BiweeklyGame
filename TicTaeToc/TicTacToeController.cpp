@@ -6,7 +6,7 @@
 TicTacToeController::TicTacToeController()
 {
 	_model = std::make_unique<TicTacToeModel>();
-	_view = std::make_unique<TicTacToeView>();
+	_view = std::make_unique<TicTacToeView>(_model->GetBoardSlotCnt());
 }
 
 TicTacToeController::~TicTacToeController()
@@ -23,6 +23,7 @@ void TicTacToeController::OnClickMouseButton(sf::RenderWindow & window, const Po
 	std::cout << "On Click MouseButton : " << mouseClickPoint.GetX() << "," << mouseClickPoint.GetY() << std::endl;
 	_model->PutHorse(mouseClickPoint, window);
 	_model->ShowResultOfTurn();
+	_view->UpdateBoard(_model->GetBoard(), window);
 }
 
 void TicTacToeController::OnCloseWindow() const

@@ -37,6 +37,16 @@ void TicTacToeModel::ShowResultOfTurn() const
 	_board->ShowBoard();
 }
 
+const int TicTacToeModel::GetBoardSlotCnt() const
+{
+	return _board->GetBoardSlotCnt();
+}
+
+const Board TicTacToeModel::GetBoard() const
+{
+	return _board->GetBoard();
+}
+
 const bool TicTacToeModel::TryMission() const
 {
 	auto missionMessage = _missionMessageSet->GetMissionMessage();

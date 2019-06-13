@@ -13,6 +13,7 @@ public:
 	const bool DrawSprite(sf::RenderWindow &window, const Point &pos);
 
 private:
+	sf::Texture _texture;
 	std::vector<sf::Sprite> _sprites;
 	int curSpritePos = 0;
 };
