@@ -15,7 +15,8 @@ void TicTacToeView::UpdateBoard(const std::array<std::array<int, 3>, 3>& board, 
 {	
 	window.clear();
 	InitializeSprites();
-	_boardSprite->DrawSprite(window, { 0.0f,0.0f } /*board sprite pos*/);
+
+	DrawBoard(window);
 		
 	for (int y = 0; y < board.size(); ++y)
 	{
@@ -38,6 +39,11 @@ void TicTacToeView::InitializeSprites() const
 	_boardSprite->Initialize();
 	_markOSprite->Initialize();
 	_markXSprite->Initialize();
+}
+
+void TicTacToeView::DrawBoard(sf::RenderWindow &window) const
+{
+	_boardSprite->DrawSprite(window, { 0.0f,0.0f } /*board sprite pos*/);
 }
 
 void TicTacToeView::DrawHorse(sf::RenderWindow & window, const HorseType::value horseType, const Point &pos) const
