@@ -24,10 +24,11 @@ void TicTacToeController::OnClickMouseButton(sf::RenderWindow & window, const Po
 	std::cout << "On Click MouseButton : " << mouseClickPoint.GetX() << "," << mouseClickPoint.GetY() << std::endl;
 	_model->PutHorse(mouseClickPoint, window);
 	_model->ShowResultOfTurn();
-	auto winner = _model->GetGameResult();
-	if(winner != TicTacToeGameResult::DRAW)
-		std::cout << "winner is : " << winner << std::endl;
 	_view->UpdateBoard(_model->GetBoard(), window);
+
+	auto winner = _model->GetGameResult();
+	if (winner != TicTacToeGameResult::NONE)
+		std::cout << "winner is : " << winner << std::endl;
 }
 
 void TicTacToeController::OnCloseWindow() const

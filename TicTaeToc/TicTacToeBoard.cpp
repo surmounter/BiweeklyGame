@@ -69,6 +69,7 @@ const Board TicTacToeBoard::GetBoard() const
 const TicTacToeGameResult::Value TicTacToeBoard::GetGameResult() const
 {
 	assert(_board.size() > 0 && _board[0].size() > 0, "board is empty");
+	if (isAllBoardSlotOccupied()) return TicTacToeGameResult::DRAW;
 
 	for (int y = 0; y < rowCnt; ++y)
 	{	
@@ -151,5 +152,14 @@ const HorseType::value TicTacToeBoard::ChckeIfHorseInADiagonal(const DiagonalDir
 	default:
 		break;
 	}
+}
+
+const bool TicTacToeBoard::isAllBoardSlotOccupied() const
+{
+	auto isOccupied = [](int c) {return c == HorseType::MARK_O || c == HorseType::MARK_X; };
+	for (int y = 0; y < _board.size(); ++y)
+		if (std::all_of(_board[y].begin(), _board[y].end(), isOccupied) == false)
+			return false;
+	return true;
 }
 

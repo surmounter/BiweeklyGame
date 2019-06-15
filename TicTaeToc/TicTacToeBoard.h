@@ -37,6 +37,7 @@ private:
 	const HorseType::value CheckIfHorsesAreSameInARow(const int row) const;
 	const HorseType::value CheckIfHorsesAreSameInAColume(const int col) const;
 	const HorseType::value ChckeIfHorseInADiagonal(const DiagonalDirection::Value direction) const;
+	const bool isAllBoardSlotOccupied() const;
 
 private:
 	const int rowCnt = 3;
