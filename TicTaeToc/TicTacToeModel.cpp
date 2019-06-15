@@ -47,7 +47,7 @@ const Board TicTacToeModel::GetBoard() const
 	return _board->GetBoard();
 }
 
-const HorseType::value TicTacToeModel::isWin() const
+const TicTacToeGameResult::Value TicTacToeModel::GetGameResult() const
 {
 	return _board->GetGameResult();
 }

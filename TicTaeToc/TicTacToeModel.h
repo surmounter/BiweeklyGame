@@ -3,6 +3,7 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "HorseType.h"
+#include "TicTacToeGameResult.h"
 #include "Point.h"
 using Board = std::array<std::array<int, 3>, 3>;
 class TicTacToeBoard;
@@ -19,7 +20,7 @@ public:
 	void ShowResultOfTurn() const;
 	const int GetBoardSlotCnt() const;
 	const Board GetBoard() const;
-	const HorseType::value isWin() const;
+	const TicTacToeGameResult::Value GetGameResult() const;
 
 private:
 	const bool TryMission() const;
