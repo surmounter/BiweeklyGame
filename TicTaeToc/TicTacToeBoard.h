@@ -4,6 +4,7 @@
 #include "WindowSize.h"
 #include "Point.h"
 #include "HorseType.h"
+#include "TicTacToeGameResult.h"
 using Board = std::array<std::array<int, 3>, 3>;
 struct BoardSlot 
 {
@@ -28,7 +29,7 @@ public:
 	const bool CanPutHorse(const BoardSlot& boardSlot) const;
 	const int GetBoardSlotCnt() const;
 	const Board GetBoard() const;
-	const HorseType::value IsWin() const;
+	const TicTacToeGameResult::Value GetGameResult() const;
 
 private:
 	const bool IsEmpty(const BoardSlot& boardSlot) const { return _board[boardSlot.y][boardSlot.x] == HorseType::EMPTY; };

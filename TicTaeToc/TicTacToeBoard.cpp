@@ -66,7 +66,7 @@ const Board TicTacToeBoard::GetBoard() const
 	return _board;
 }
 
-const HorseType::value TicTacToeBoard::IsWin() const
+const TicTacToeGameResult::Value TicTacToeBoard::GetGameResult() const
 {
 	assert(_board.size() > 0 && _board[0].size() > 0, "board is empty");
 
@@ -77,7 +77,7 @@ const HorseType::value TicTacToeBoard::IsWin() const
 			if (_board[y][x] == HorseType::EMPTY || _board[y][x] != _board[y][0])
 				break;
 		const bool isSameInYRow = (x == colCnt);
-		if (isSameInYRow) return static_cast<HorseType::value>(_board[y][0]);
+		if (isSameInYRow) return static_cast<TicTacToeGameResult::Value>(_board[y][0]);
 	}
 
 	for (int x = 0; x < colCnt; ++x)
@@ -87,7 +87,7 @@ const HorseType::value TicTacToeBoard::IsWin() const
 			if (_board[y][x] == HorseType::EMPTY || _board[y][x] != _board[0][x])
 				break;
 		const bool isSameInXCol = (y == rowCnt);
-		if (isSameInXCol) return static_cast<HorseType::value>(_board[0][x]);
+		if (isSameInXCol) return static_cast<TicTacToeGameResult::Value>(_board[0][x]);
 	}
 
 	int i = 0;
@@ -97,7 +97,7 @@ const HorseType::value TicTacToeBoard::IsWin() const
 			break;
 	}
 	const bool isSameInDiagonal = (i == _board.size());
-	if (isSameInDiagonal) return static_cast<HorseType::value>(_board[0][0]);
+	if (isSameInDiagonal) return static_cast<TicTacToeGameResult::Value>(_board[0][0]);
 
 	int y = 0;
 	int x = colCnt - 1;
@@ -105,9 +105,10 @@ const HorseType::value TicTacToeBoard::IsWin() const
 		if (_board[y][x] == HorseType::EMPTY || _board[y][x] != _board[0][colCnt - 1])
 			break;
 	const bool isSameInAntiDiagonal = (x == -1 && y == rowCnt);
-	if (isSameInAntiDiagonal) return static_cast<HorseType::value>(_board[0][colCnt - 1]);
+	if (isSameInAntiDiagonal) return static_cast<TicTacToeGameResult::Value>(_board[0][colCnt - 1]);
 
-	return HorseType::EMPTY;
+	// TODO: draw가 아니라 새로운 속성 추가해서 none 수정해야한다.
+	return TicTacToeGameResult::DRAW;
 }
 
 const HorseType::value TicTacToeBoard::CheckIfHorsesAreSameInARow(const int row) const
