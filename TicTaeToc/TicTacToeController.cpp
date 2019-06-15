@@ -16,6 +16,7 @@ TicTacToeController::~TicTacToeController()
 void TicTacToeController::OnStartGameLoop(sf::RenderWindow & window) const
 {
 	std::cout << "On Start Game Loop" << std::endl;		
+	_view->UpdateBoard(_model->GetBoard(), window);
 }
 
 void TicTacToeController::OnClickMouseButton(sf::RenderWindow & window, const Point & mouseClickPoint) const
