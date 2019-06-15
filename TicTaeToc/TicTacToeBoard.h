@@ -28,7 +28,7 @@ public:
 	const bool CanPutHorse(const BoardSlot& boardSlot) const;
 	const int GetBoardSlotCnt() const;
 	const Board GetBoard() const;
-	const HorseType::value IsWin(const BoardSlot &recentPutSlot) const;
+	const HorseType::value IsWin() const;
 
 private:
 	const bool IsEmpty(const BoardSlot& boardSlot) const { return _board[boardSlot.y][boardSlot.x] == HorseType::EMPTY; };

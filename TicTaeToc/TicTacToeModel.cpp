@@ -47,6 +47,11 @@ const Board TicTacToeModel::GetBoard() const
 	return _board->GetBoard();
 }
 
+const HorseType::value TicTacToeModel::isWin() const
+{
+	return _board->IsWin();
+}
+
 const bool TicTacToeModel::TryMission() const
 {
 	auto missionMessage = _missionMessageSet->GetMissionMessage();

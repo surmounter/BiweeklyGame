@@ -24,6 +24,9 @@ void TicTacToeController::OnClickMouseButton(sf::RenderWindow & window, const Po
 	std::cout << "On Click MouseButton : " << mouseClickPoint.GetX() << "," << mouseClickPoint.GetY() << std::endl;
 	_model->PutHorse(mouseClickPoint, window);
 	_model->ShowResultOfTurn();
+	auto winner = _model->isWin();
+	if (winner != HorseType::EMPTY)
+		std::cout << "winner is : " << winner << std::endl;
 	_view->UpdateBoard(_model->GetBoard(), window);
 }
 

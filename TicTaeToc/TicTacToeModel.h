@@ -19,6 +19,7 @@ public:
 	void ShowResultOfTurn() const;
 	const int GetBoardSlotCnt() const;
 	const Board GetBoard() const;
+	const HorseType::value isWin() const;
 
 private:
 	const bool TryMission() const;
