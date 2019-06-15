@@ -108,7 +108,7 @@ const TicTacToeGameResult::Value TicTacToeBoard::GetGameResult() const
 	if (isSameInAntiDiagonal) return static_cast<TicTacToeGameResult::Value>(_board[0][colCnt - 1]);
 
 	// TODO: draw가 아니라 새로운 속성 추가해서 none 수정해야한다.
-	return TicTacToeGameResult::DRAW;
+	return TicTacToeGameResult::NONE;
 }
 
 const HorseType::value TicTacToeBoard::CheckIfHorsesAreSameInARow(const int row) const
