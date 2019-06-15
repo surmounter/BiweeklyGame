@@ -18,6 +18,7 @@ public:
 private:
 	void InitializeSprites() const;
 	void DrawBoard(sf::RenderWindow &window) const;
+	void DrawHorsesOnBoard(sf::RenderWindow &window, const std::array<std::array<int, 3>, 3>& board) const;
 	void DrawHorse(sf::RenderWindow &window, const HorseType::value horseType, const Point &pos) const;
 private:
 	const std::string _boardTextureDir = "Resource/board.png";

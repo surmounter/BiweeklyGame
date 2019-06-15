@@ -17,20 +17,7 @@ void TicTacToeView::UpdateBoard(const std::array<std::array<int, 3>, 3>& board, 
 	InitializeSprites();
 
 	DrawBoard(window);
-		
-	for (int y = 0; y < board.size(); ++y)
-	{
-		int rowCnt = board.size();
-		for (int x = 0; x < board[y].size(); ++x)
-		{
-			int colCnt = board[y].size();
-			const float spritePosX = (window.getSize().x / colCnt) * x;
-			const float spritePosY = (window.getSize().y / rowCnt) * y;
-			const Point spritePos = { spritePosX, spritePosY };
-			auto horseType = static_cast<const HorseType::value>(board[y][x]);
-			DrawHorse(window, horseType, spritePos);
-		}
-	}
+	DrawHorsesOnBoard(window, board);
 	window.display();	
 }
 
@@ -44,6 +31,23 @@ void TicTacToeView::InitializeSprites() const
 void TicTacToeView::DrawBoard(sf::RenderWindow &window) const
 {
 	_boardSprite->DrawSprite(window, { 0.0f,0.0f } /*board sprite pos*/);
+}
+
+void TicTacToeView::DrawHorsesOnBoard(sf::RenderWindow & window, const std::array<std::array<int, 3>, 3>& board) const
+{
+	for (int y = 0; y < board.size(); ++y)
+	{
+		int rowCnt = board.size();
+		for (int x = 0; x < board[y].size(); ++x)
+		{
+			int colCnt = board[y].size();
+			const float spritePosX = (window.getSize().x / colCnt) * x;
+			const float spritePosY = (window.getSize().y / rowCnt) * y;
+			const Point spritePos = { spritePosX, spritePosY };
+			auto horseType = static_cast<const HorseType::value>(board[y][x]);
+			DrawHorse(window, horseType, spritePos);
+		}
+	}
 }
 
 void TicTacToeView::DrawHorse(sf::RenderWindow & window, const HorseType::value horseType, const Point &pos) const
