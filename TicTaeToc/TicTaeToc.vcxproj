@@ -138,6 +138,7 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="TicTacToeBoard.h" />
+    <ClInclude Include="TicTacToeGameResult.h" />
     <ClInclude Include="TicTacToeGate.h" />
     <ClInclude Include="TicTacToeController.h" />
     <ClInclude Include="TicTacToeMissionMessageSet.h" />
