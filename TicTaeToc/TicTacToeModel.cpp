@@ -14,6 +14,13 @@ TicTacToeModel::~TicTacToeModel()
 {
 }
 
+void TicTacToeModel::Initialize()
+{
+	_board->ClearBoard();
+	_missionMessageSet->InitializeMissionMessageSet();
+	_turn = HorseType::MARK_O;
+}
+
 const bool TicTacToeModel::PutHorse(const Point & mouseClickPoint, const sf::RenderWindow & window)
 {
 	WindowSize windowSize = { window.getSize().x, window.getSize().y };
@@ -52,10 +59,37 @@ const TicTacToeGameResult::Value TicTacToeModel::GetGameResult() const
 	return _board->GetGameResult();
 }
 
+const bool TicTacToeModel::AskRestart(const TicTacToeGameResult::Value gameResult) const
+{
+	const int clickOkButton = 1;
+	const bool isRestart = (MessageBoxA(NULL, _askRestartContents, GetAskRestartTitle(gameResult).c_str(), MB_OKCANCEL | MB_ICONEXCLAMATION) == clickOkButton);
+	return isRestart;
+}
+
 const bool TicTacToeModel::TryMission() const
 {
 	auto missionMessage = _missionMessageSet->GetMissionMessage();
 	const int clickOkButton = 1;
 	const bool isClear = (MessageBoxA(NULL, missionMessage.c_str(), _missionMessageTitle, MB_OKCANCEL | MB_ICONEXCLAMATION) == clickOkButton);
 	return isClear;
+}
+
+const std::string TicTacToeModel::GetAskRestartTitle(const TicTacToeGameResult::Value gameResult) const
+{
+	std::string askRestartTitle;
+	switch (gameResult)
+	{
+	case TicTacToeGameResult::DRAW:
+		askRestartTitle = "GameResult is DRAW";
+		break;
+	case TicTacToeGameResult::WINNER_MARK_O:
+		askRestartTitle = "Winner is PlayerO";
+		break;
+	case TicTacToeGameResult::WINNER_MARK_X:
+		askRestartTitle = "Winner is PlayerX";
+		break;
+	default:
+		break;			
+	}
+	return askRestartTitle;
 }

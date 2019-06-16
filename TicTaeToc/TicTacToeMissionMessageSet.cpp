@@ -6,7 +6,7 @@
 
 TicTacToeMissionMessageSet::TicTacToeMissionMessageSet()
 {
-	InitializeMissionMessages(missionMessageFileDir);
+	InitializeMissionMessages(_missionMessageFileDir);
 }
 
 TicTacToeMissionMessageSet::~TicTacToeMissionMessageSet()
@@ -37,6 +37,11 @@ void TicTacToeMissionMessageSet::ShuffleMissionMessages()
 	std::random_device rd; // TODO :  ÀÇ¹Ì
 	std::mt19937 g(rd());
 	std::shuffle(_missionMessages.begin(), _missionMessages.end(), g);
+}
+
+void TicTacToeMissionMessageSet::InitializeMissionMessageSet()
+{
+	InitializeMissionMessages(_missionMessageFileDir);
 }
 
 void TicTacToeMissionMessageSet::ShowAllMissionMessages() const

@@ -8,6 +8,7 @@ public:
 	TicTacToeMissionMessageSet();
 	~TicTacToeMissionMessageSet();
 
+	void InitializeMissionMessageSet();
 	void ShowAllMissionMessages() const;
 	const std::string GetMissionMessage();
 
@@ -17,7 +18,7 @@ private:
 	void ShuffleMissionMessages();
 
 private:
-	const std::string missionMessageFileDir = "Resource/missionMessageFile.txt";
+	const std::string _missionMessageFileDir = "Resource/missionMessageFile.txt";
 	std::vector<std::string> _missionMessages;
 	int _getMissionMessageCnt = 0;
 };
