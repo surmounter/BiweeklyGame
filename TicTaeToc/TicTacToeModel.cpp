@@ -4,6 +4,7 @@
 #include "TicTacToeBoard.h"
 #include "TicTacToeMissionMessageSet.h"
 #include "TicTacToeAudioMgr.h"
+#include "TicTacToeAudioKind.h"
 TicTacToeModel::TicTacToeModel()
 {
 	_board = std::make_unique<TicTacToeBoard>();
@@ -36,6 +37,7 @@ const bool TicTacToeModel::PutHorse(const Point & mouseClickPoint, const sf::Ren
 	}
 	_board->PutHorseOnBoard(_turn, boardSlot);		
 	ChangeTurn();
+	_audioMgr->Play(TicTacToeAudioKind::PUTHORSE);
 	return true;
 }
 
@@ -62,16 +64,16 @@ const TicTacToeGameResult::Value TicTacToeModel::GetGameResult() const
 
 const bool TicTacToeModel::AskRestart(const TicTacToeGameResult::Value gameResult) const
 {
-	const int clickOkButton = 1;
-	const bool isRestart = (MessageBoxA(NULL, _askRestartContents, GetAskRestartTitle(gameResult).c_str(), MB_OKCANCEL | MB_ICONEXCLAMATION) == clickOkButton);
+	const int clickRetryButton = 4;
+	const bool isRestart = (MessageBoxA(NULL, _askRestartContents, GetAskRestartTitle(gameResult).c_str(), MB_RETRYCANCEL | MB_ICONINFORMATION) == clickRetryButton);
 	return isRestart;
 }
 
 const bool TicTacToeModel::TryMission() const
 {
 	auto missionMessage = _missionMessageSet->GetMissionMessage();
-	const int clickOkButton = 1;
-	const bool isClear = (MessageBoxA(NULL, missionMessage.c_str(), _missionMessageTitle, MB_OKCANCEL | MB_ICONEXCLAMATION) == clickOkButton);
+	const int clickYesButton = 6;
+	const bool isClear = (MessageBoxA(NULL, missionMessage.c_str(), _missionMessageTitle, MB_YESNO | MB_ICONEXCLAMATION) == clickYesButton);
 	return isClear;
 }
 

@@ -126,6 +126,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
+    <ClCompile Include="TicTacToeAudio.cpp" />
     <ClCompile Include="TicTacToeAudioMgr.cpp" />
     <ClCompile Include="TicTacToeBoard.cpp" />
     <ClCompile Include="TicTacToeController.cpp" />
@@ -138,6 +139,8 @@
     <ClInclude Include="HorseType.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="SpriteManager.h" />
+    <ClInclude Include="TicTacToeAudio.h" />
+    <ClInclude Include="TicTacToeAudioKind.h" />
     <ClInclude Include="TicTacToeAudioMgr.h" />
     <ClInclude Include="TicTacToeBoard.h" />
     <ClInclude Include="TicTacToeGameResult.h" />
