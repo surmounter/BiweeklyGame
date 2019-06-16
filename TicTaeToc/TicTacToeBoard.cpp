@@ -70,9 +70,20 @@ const TicTacToeGameResult::Value TicTacToeBoard::GetGameResult() const
 {
 	assert(_board.size() > 0 && _board[0].size() > 0, "board is empty");
 	if (isAllBoardSlotOccupied()) return TicTacToeGameResult::DRAW;
+	
+	TicTacToeGameResult::Value gameResult;
+	if ((gameResult = CheckIfHorsesAreSameInRows()) != TicTacToeGameResult::NONE) return gameResult;
+	if ((gameResult = CheckIfHorsesAreSameInColumes()) != TicTacToeGameResult::NONE) return gameResult;
+	if ((gameResult = ChckeIfHorseAreSameInDiagonals()) != TicTacToeGameResult::NONE) return gameResult;
+	if ((gameResult = ChckeIfHorseAreSameInAntiDiagonals()) != TicTacToeGameResult::NONE) return gameResult;
 
+	return TicTacToeGameResult::NONE;
+}
+
+const TicTacToeGameResult::Value TicTacToeBoard::CheckIfHorsesAreSameInRows() const
+{
 	for (int y = 0; y < rowCnt; ++y)
-	{	
+	{
 		int x = 0;
 		for (; x < colCnt; ++x)
 			if (_board[y][x] == HorseType::EMPTY || _board[y][x] != _board[y][0])
@@ -80,7 +91,11 @@ const TicTacToeGameResult::Value TicTacToeBoard::GetGameResult() const
 		const bool isSameInYRow = (x == colCnt);
 		if (isSameInYRow) return static_cast<TicTacToeGameResult::Value>(_board[y][0]);
 	}
+	return TicTacToeGameResult::NONE;
+}
 
+const TicTacToeGameResult::Value TicTacToeBoard::CheckIfHorsesAreSameInColumes() const
+{
 	for (int x = 0; x < colCnt; ++x)
 	{
 		int y = 0;
@@ -90,7 +105,11 @@ const TicTacToeGameResult::Value TicTacToeBoard::GetGameResult() const
 		const bool isSameInXCol = (y == rowCnt);
 		if (isSameInXCol) return static_cast<TicTacToeGameResult::Value>(_board[0][x]);
 	}
+	return TicTacToeGameResult::NONE;
+}
 
+const TicTacToeGameResult::Value TicTacToeBoard::ChckeIfHorseAreSameInDiagonals() const
+{
 	int i = 0;
 	for (; i < _board.size(); ++i)
 	{
@@ -98,60 +117,22 @@ const TicTacToeGameResult::Value TicTacToeBoard::GetGameResult() const
 			break;
 	}
 	const bool isSameInDiagonal = (i == _board.size());
-	if (isSameInDiagonal) return static_cast<TicTacToeGameResult::Value>(_board[0][0]);
+	if (isSameInDiagonal) 
+		return static_cast<TicTacToeGameResult::Value>(_board[0][0]);
+	return TicTacToeGameResult::NONE;
+}
 
+const TicTacToeGameResult::Value TicTacToeBoard::ChckeIfHorseAreSameInAntiDiagonals() const
+{
 	int y = 0;
 	int x = colCnt - 1;
 	for (; x >= 0 && y < rowCnt; --x, ++y)
 		if (_board[y][x] == HorseType::EMPTY || _board[y][x] != _board[0][colCnt - 1])
 			break;
 	const bool isSameInAntiDiagonal = (x == -1 && y == rowCnt);
-	if (isSameInAntiDiagonal) return static_cast<TicTacToeGameResult::Value>(_board[0][colCnt - 1]);
-
-	// TODO: draw가 아니라 새로운 속성 추가해서 none 수정해야한다.
+	if (isSameInAntiDiagonal) 
+		return static_cast<TicTacToeGameResult::Value>(_board[0][colCnt - 1]);
 	return TicTacToeGameResult::NONE;
-}
-
-const HorseType::value TicTacToeBoard::CheckIfHorsesAreSameInARow(const int row) const
-{
-	assert(row < _board.size() && row >= 0, "out of bound in row");
-	assert(_board.size() > 0 && _board[0].size() > 0, "_board is empty");
-	for (int x = 0; x < _board[row].size(); ++x)
-		if (_board[row][x] == HorseType::EMPTY || _board[row][0] != _board[row][x])
-			return HorseType::EMPTY;
-	return static_cast<HorseType::value>(_board[row][0]);
-}
-
-const HorseType::value TicTacToeBoard::CheckIfHorsesAreSameInAColume(const int col) const
-{
-	assert(col < _board.size() && col >= 0, "out of bound in col");
-	assert(_board.size() > 0 && _board[0].size() > 0, "_board is empty");
-	for (int y = 0; y < _board.size(); ++y)
-		if (_board[y][col] == HorseType::EMPTY || _board[0][col] != _board[y][col])
-			return HorseType::EMPTY;
-	return static_cast<HorseType::value>(_board[0][col]);	
-}
-
-const HorseType::value TicTacToeBoard::ChckeIfHorseInADiagonal(const DiagonalDirection::Value direction) const
-{
-	assert(_board.size() > 0 && _board[0].size() > 0, "_board is empty");
-	switch (direction)
-	{
-	case DiagonalDirection::LEFTTOP_RIGHTDOWN:
-		for (int i = 0; i < _board.size(); ++i)
-			if (_board[i][i] == HorseType::EMPTY || _board[0][0] != _board[i][i])
-				return HorseType::EMPTY;
-		return static_cast<HorseType::value>(_board[0][0]);
-		break;
-	case DiagonalDirection::RIGHTTOP_LEFTDOWN:
-		for(int i = _board.size() - 1; i >= 0; --i)
-			if (_board[i][i] == HorseType::EMPTY || _board[_board.size()-1][_board.size()-1] != _board[i][i])
-				return HorseType::EMPTY;
-		return static_cast<HorseType::value>(_board[_board.size()-1][_board.size()-1]);
-		break;
-	default:
-		break;
-	}
 }
 
 const bool TicTacToeBoard::isAllBoardSlotOccupied() const

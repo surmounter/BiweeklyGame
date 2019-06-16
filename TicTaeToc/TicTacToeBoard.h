@@ -34,9 +34,10 @@ public:
 private:
 	const bool IsEmpty(const BoardSlot& boardSlot) const { return _board[boardSlot.y][boardSlot.x] == HorseType::EMPTY; };
 	const bool IsOffBoard(const BoardSlot& boardSlot) const { return (boardSlot.x < 0) || (boardSlot.x >= colCnt) || (boardSlot.y < 0) || (boardSlot.y >= colCnt); };
-	const HorseType::value CheckIfHorsesAreSameInARow(const int row) const;
-	const HorseType::value CheckIfHorsesAreSameInAColume(const int col) const;
-	const HorseType::value ChckeIfHorseInADiagonal(const DiagonalDirection::Value direction) const;
+	const TicTacToeGameResult::Value CheckIfHorsesAreSameInRows() const;
+	const TicTacToeGameResult::Value CheckIfHorsesAreSameInColumes() const;
+	const TicTacToeGameResult::Value ChckeIfHorseAreSameInDiagonals() const;
+	const TicTacToeGameResult::Value ChckeIfHorseAreSameInAntiDiagonals() const;
 	const bool isAllBoardSlotOccupied() const;
 
 private:
