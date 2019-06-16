@@ -8,7 +8,7 @@
 using Board = std::array<std::array<int, 3>, 3>;
 class TicTacToeBoard;
 class TicTacToeMissionMessageSet;
-
+class TicTacToeAudioMgr;
 class TicTacToeModel final
 {
 public:
@@ -32,6 +32,7 @@ private:
 private:
 	std::unique_ptr<TicTacToeBoard> _board;
 	std::unique_ptr<TicTacToeMissionMessageSet> _missionMessageSet;
+	std::unique_ptr< TicTacToeAudioMgr> _audioMgr;
 	HorseType::value _turn = HorseType::MARK_O;
 	const char* _missionMessageTitle = "Mission Message. Click ok buttion if you clear mission or not your turn will be taken over";
 	const char* _askRestartContents = "If you wanna restart game, click OK button or not window will be closed";

@@ -3,11 +3,12 @@
 #include <Windows.h>
 #include "TicTacToeBoard.h"
 #include "TicTacToeMissionMessageSet.h"
-
+#include "TicTacToeAudioMgr.h"
 TicTacToeModel::TicTacToeModel()
 {
 	_board = std::make_unique<TicTacToeBoard>();
 	_missionMessageSet = std::make_unique<TicTacToeMissionMessageSet>();
+	_audioMgr = std::make_unique<TicTacToeAudioMgr>();
 }
 
 TicTacToeModel::~TicTacToeModel()
