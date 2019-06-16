@@ -26,24 +26,23 @@ void TicTacToeController::OnClickMouseButton(sf::RenderWindow & window, const Po
 	_model->ShowResultOfTurn();
 	_view->UpdateBoard(_model->GetBoard(), window);
 
-	auto winner = _model->GetGameResult();
-	if (winner != TicTacToeGameResult::NONE)
+	auto gameResult = _model->GetGameResult();
+	if (gameResult != TicTacToeGameResult::NONE)
 	{
-		auto isRestart = _model->AskRestart(winner);
+		auto isRestart = _model->AskRestart(gameResult);
 		if (isRestart)
 		{
 			_model->Initialize();
 			_view->UpdateBoard(_model->GetBoard(), window);
 		}
 		else
-		{
-			//TODO : close window
-		}
+			OnCloseWindow(window);
 	}
 		
 }
 
-void TicTacToeController::OnCloseWindow() const
+void TicTacToeController::OnCloseWindow(sf::RenderWindow & window) const
 {
 	std::cout << "On Close Window" << std::endl;
+	window.close();
 }

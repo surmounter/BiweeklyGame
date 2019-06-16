@@ -25,8 +25,7 @@ void TicTacToeGate::UpdateGameLoop()
 				_controller->OnClickMouseButton(_window, Point{ event.mouseButton.x * 1.0f, event.mouseButton.y * 1.0f });
 				break;
 			case sf::Event::Closed:
-				_controller->OnCloseWindow();
-				_window.close();
+				_controller->OnCloseWindow(_window);
 				break;
 			default:
 				break;

@@ -14,7 +14,7 @@ public:
 
 	void OnStartGameLoop(sf::RenderWindow &window) const;
 	void OnClickMouseButton(sf::RenderWindow &window, const Point& mouseClickPoint) const;
-	void OnCloseWindow() const;
+	void OnCloseWindow(sf::RenderWindow &window) const;
 
 private:
 	std::unique_ptr<TicTacToeModel> _model;
