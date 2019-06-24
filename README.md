@@ -2,7 +2,7 @@
 
 # TicTacToe
 
-[![ttt](TicTaeToc/img/tictactoeTitle.png)](https://youtu.be/famzGKXPNUQ)
+[![ttt](TicTaeToc/img/tictactoeTitle2.png)](https://youtu.be/famzGKXPNUQ)
 
 * 제작인원 : 1인
 * 사용언어 : C++
