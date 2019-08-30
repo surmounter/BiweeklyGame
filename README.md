@@ -1,5 +1,3 @@
-# BiweeklyGame
-
 # TicTacToe
 
 [![ttt](TicTaeToc/img/tictactoeTitle2.png)](https://youtu.be/famzGKXPNUQ)
